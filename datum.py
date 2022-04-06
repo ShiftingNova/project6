@@ -101,6 +101,8 @@ def start_longest_run(numbers):
             run = 0
         else:
             run = run+1
+    if run > longest_run:
+        longest_index = current_first
     return longest_index
 def mode(numbers):
     '''
@@ -111,6 +113,8 @@ def mode(numbers):
     if two different numbers appear the same number of times it returns the smaller number
     '''
     results = {}
+    if len(numbers)==0:
+        return None
     for index in numbers:
         if index not in results:
             results[index] = 1
@@ -126,3 +130,4 @@ def mode(numbers):
             if results_key > key:
                 results_key = key
     return results_key
+print(start_longest_run([1, 2, 2, 2, 2],))
