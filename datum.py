@@ -72,10 +72,11 @@ def merge_ascending(L1, L2):
     for index in range(len(L1)):
         results.append(L1[index])
         if index < len(L1)-1:
-            if L2[check] < L1[index+1]:
-                results.append(L2[index])
-                check = check + 1
-    while check < len(L2)-1:
+            if check <len(L2):
+                if L2[check] < L1[index+1]:
+                    results.append(L2[index])
+                    check = check + 1
+    while check <= len(L2)-1:
         results.append(L2[check])
         check = check + 1
     return results
@@ -83,7 +84,6 @@ def start_longest_run(numbers):
     '''
     start_longest_run takes in one list of parameters called numbers. Then counts how many times each number appears in
     the list in a row. then returns the index of the first number in the longest sequence.
-
     '''
     longest_run = 0
     run = 0
