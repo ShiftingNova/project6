@@ -75,7 +75,7 @@ def merge_ascending(L1, L2):
             if L2[check] < L1[index+1]:
                 results.append(L2[index])
                 check = check + 1
-    while check < len(L2):
+    while check < len(L2)-1:
         results.append(L2[check])
         check = check + 1
     return results
