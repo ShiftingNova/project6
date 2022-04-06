@@ -73,8 +73,7 @@ def merge_ascending(L1, L2):
         results.append(L1[index])
         check = index
         if index < len(L2):
-            if L2[index] > L1[index]:
-                results.append(L2[index])
+            results.append(L2[index])
     while check < len(L2)-1:
         check = check +1
         results.append(L2[check])
@@ -106,9 +105,9 @@ def start_longest_run(numbers):
 def mode(numbers):
     '''
     mode is a function that takes in a list parameter called numbers and counts how often each number appears in the list.
-    Then returns the number that appears most in the list. 
-    This happens by counting each number in the list and 
-    storing how many ties each number appears in a dictionary. 
+    Then returns the number that appears most in the list.
+    This happens by counting each number in the list and
+    storing how many ties each number appears in a dictionary.
     if two different numbers appear the same number of times it returns the smaller number
     '''
     results = {}
