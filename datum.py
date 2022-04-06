@@ -71,12 +71,13 @@ def merge_ascending(L1, L2):
     check = 0
     for index in range(len(L1)):
         results.append(L1[index])
-        check = index
-        if index < len(L2):
-            results.append(L2[index])
-    while check < len(L2)-1:
-        check = check +1
+        if index < len(L1)-1:
+            if L2[check] < L1[index+1]:
+                results.append(L2[index])
+                check = check + 1
+    while check < len(L2):
         results.append(L2[check])
+        check = check + 1
     return results
 def start_longest_run(numbers):
     '''
@@ -130,4 +131,3 @@ def mode(numbers):
             if results_key > key:
                 results_key = key
     return results_key
-print(start_longest_run([1, 2, 2, 2, 2],))
