@@ -61,28 +61,38 @@ def keep_first(dictionaries):
             if temp not in results:
                 results[temp] = dict["GPA"]
     return results
-def merge_ascending(L1, L2):
+def merge_ascending(L1,L2):
     '''
     merge_ascending takes in two list parameters called L1 and L2.
     then returns a list called results
     results is made by adding the values in L1 and L2 in ascending order
     '''
     results = []
-    check = 0
-    for index in range(len(L1)):
-        if check < len(L2):
-            if L2[check]<L1[index]:
-                results.append(L2[check])
-                check = check + 1
-        results.append(L1[index])
-        if index < len(L1)-1:
-            if check <len(L2):
-                if L2[check] < L1[index+1]:
-                    results.append(L2[check])
-                    check = check + 1
-    while check <= len(L2)-1:
-        results.append(L2[check])
-        check = check + 1
+    length = (len(L1)+len(L2))
+    for i in range(length):
+        results.append(0)
+    index = 0
+    endex = 0
+    ondex = 0
+    while index <len(L1) and endex <len(L2) and ondex<length:
+        if L1[index] <= L2[endex]:
+            results[ondex] = L1[index]
+            index = index +1
+            ondex = ondex + 1
+            if index >= len(L1):
+                while ondex < length:
+                    results[ondex] = L2[endex]
+                    ondex = ondex + 1
+                    endex = endex + 1
+        else:
+            results[ondex] = L2[endex]
+            endex = endex +1
+            ondex = ondex + 1
+            if endex >= len(L2):
+                while ondex < length:
+                    results[ondex] = L1[index]
+                    ondex = ondex + 1
+                    index = index + 1
     return results
 def start_longest_run(numbers):
     '''
@@ -135,3 +145,6 @@ def mode(numbers):
             if results_key > key:
                 results_key = key
     return results_key
+
+
+
